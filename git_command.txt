@@ -1,0 +1,107 @@
+git config --global user.name "Kartik Kathuria"
+git config --global user.email "kathuriakartik0@gmail.com"
+git config --global user.password "your password"
+
+///
+
+mkdir git-test
+cd git-test
+git init
+ls
+ls -a (to see .git file)
+
+//
+git status
+
+(create  a new file in git-test index.html)
+
+check git status again
+
+//
+(staging files)
+git add index.html
+
+git add index1.html index2.html
+ 
+git add - A (stage all changed files at once) (git add .)
+
+//
+(commiting changes)
+git commit -m "requried changes made"
+check git status again
+
+//
+(checking logs)
+git log
+
+// repeat..create more files
+touch app1.txt
+touch app2.txt
+(modify index.html)
+check git status
+
+(add changes)
+git add app1.txt app2.txt
+check git status
+
+(commit changes)
+git commit -m "add application text files"
+
+// repeat it again (create more files and edit already created one)
+
+
+
+
+// 
+Reverting to a previous commit..(Advantage of creating commits)
+check git log
+git log
+
+git checkout commit-hash (will revert my files till the given commit)
+
+
+
+
+//
+Branching
+By default we are on main branch..not master :)
+git branch (to see all existing branches) 
+git checkout -b "new-branch" (creating a new branch)
+git checkout "branch-name" (switch to a different branch)
+git checkout main (switch to main)
+check git branch
+(Repeat add/commit steps on a new branch)
+check git log
+git checkout main (switch to main)
+check git log (your commit is not there as main is not affected)
+
+//
+Merging branch with main
+git merge "new-branch" (There can be conflicts)
+check git log
+
+
+//// Working on git and github
+git remote -v (list remotes)
+git remote add origin "https://github.com/kartik1000/WeatherScraper.git"
+(when you have cloned a repo..no need to add origin as git already knows which repo to push code to)
+
+// Pushing code
+git push origin main
+
+//Fetch changes made by other people
+git pull origin main
+
+// create a new branch..add code and push that branch to remote (github repo)
+git push origin "new-branch"
+
+//working with forked repo
+git add upstream (abhijeet's original repo)
+always make sure your local is same as upstream before making changes
+git fetch upstream
+
+git remote add upstream https://github.com/some_user/some_repo
+git fetch upstream
+git checkout master
+git reset --hard upstream/master  
+git push origin master --force
