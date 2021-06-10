@@ -105,3 +105,7 @@ git fetch upstream
 git checkout master
 git reset --hard upstream/master  
 git push origin master --force
+
+Difference between pull origin and fetch upstream is 
+pull origin - changes in working directory
+fetch upstream - checks if there is any Difference b/w upstream and working directory
